@@ -20,14 +20,22 @@ RSpec.describe "User registration form" do
   end
 
   describe "sad paths" do
-    it "does not login user" do
+    it "does not log in user - bad password" do
       fill_in :email, with: "user1@test.com"
       fill_in :password, with: "wrongpassword"
     
       click_button "Log In"
 
       expect(current_path).to eq(login_path)
-      
+    end
+
+    it "does not log in user - bad username" do
+      fill_in :email, with: "wrong@email.com"
+      fill_in :password, with: "123"
+    
+      click_button "Log In"
+
+      expect(current_path).to eq(login_path)
     end
   end
 end
