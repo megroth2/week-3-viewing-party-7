@@ -12,8 +12,13 @@ RSpec.describe 'Landing Page' do
   end
 
   it 'has links/buttons that link to correct pages' do 
+    click_link "Log In"
+
+    expect(current_path).to eq(login_path)
+
+    visit '/'
     click_button "Create New User"
-    
+
     expect(current_path).to eq(register_path) 
     
     visit '/'
