@@ -1,11 +1,11 @@
 <h2>Login</h2>
 
-<%= form_with url: users_path, method: :get do |form| %>
+<%= form_with url: login_path, method: :post do |form| %>
   <%= form.label :email, 'E-mail: ' %>
   <%= form.text_field :email, required: true %><br>
 
   <%= form.label :password, 'Password: ' %>
   <%= form.password_field :password %><br>
 
-  <%= form.submit "Create New User" %>
+  <%= form.submit "Log In" %>
 <% end %>
